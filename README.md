@@ -20,6 +20,7 @@ name - name of the round
 POST http://localhost:3000/referee/round/:roundId/match
 
 body :
+
 {
 	"match":{
 		"roundId":1490081496239, 
@@ -29,7 +30,6 @@ body :
 		"attacker":6 
 	}
 }
-Request Parameter-
 
 roundI- created in 1st API
 user1- player 1 user id 
@@ -37,7 +37,7 @@ user2- player 2 user id
 defender- initial defender user id 
 attacker- initial attacker user id
 
-Respose-
+Respose
 
 id- match id
 
@@ -52,6 +52,10 @@ GET http://localhost:3000/referee/game
 ```sh
 GET http://localhost:3000/referee/game/restart
 ```
+#### Game Report
+```sh
+GET http://localhost:3000/referee/game/report
+```
 
 
 ## API for the Player 
@@ -60,7 +64,7 @@ GET http://localhost:3000/referee/game/restart
 ```sh
 PUT http://localhost:3000/player/:playerId/join
 
-Requst-
+Path parameter:
 
 playerId- palyer id
 
@@ -69,8 +73,6 @@ playerId- palyer id
 #### 6. Save defence inputs for the game
 ```sh
 PUT http://localhost:3000/player/playerId/round/:roundId/match/:matchId/defend
-
-##### Request:
 
 Path parameter: 
 playerId- palyer id
@@ -90,8 +92,6 @@ defenderInputs- defence inputs array
 ```sh
 PUT http://localhost:3000/player/playerId/round/:roundId/match/:matchId/attack
 
-##### Requst
-
 Path parameter:
 
 playerId- palyer id
@@ -101,8 +101,24 @@ matchId- id created in 2nd API
 body: 
 
 {
-    "defenderInputs" : [3,1,2,6,8]
+	"attackerInput" : 9
 }
 
-defenderInputs- defence inputs array
+attackerInput- attacker input
 ```
+
+#### 8. Check game stasus 
+```sh
+GET http://localhost:3000/player/playerId/round/:roundId/match/:matchId
+
+Path parameter:
+
+playerId- palyer id
+roundId- round id created in 1st API or 2nd API
+matchId- id created in 2nd API
+
+```
+
+
+
+
