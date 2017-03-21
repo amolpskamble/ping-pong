@@ -1,9 +1,7 @@
 # Ping Pong
 
 
-## API DOCUMETNATION
-
-## FOR REFEREE 
+## API for Referee 
 
 #### Create the round
 ```sh
