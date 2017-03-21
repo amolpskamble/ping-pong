@@ -132,6 +132,7 @@ matchId- id created in 2nd API
 		move - Action of defending, attacking.
 	- Restart the game using 4th API if any unexpected errors are coming up.
 	- Use 5th API to check the game progress and scoreboard.
+	- Use player id given in the following section for API's calls.
 	
 #### Player Details
 
