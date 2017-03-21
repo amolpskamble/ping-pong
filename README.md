@@ -111,7 +111,7 @@ attackerInput- attacker input
 
 #### 8. Check game stasus 
 ```sh
-GET https://ping-pong-game.herokuapp.com/player/playerId/round/:roundId/match/:matchId
+GET https://ping-pong-game.herokuapp.com/player/:playerId/round/:roundId/match/:matchId
 
 Path parameter:
 
