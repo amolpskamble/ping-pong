@@ -1,11 +1,11 @@
 # Ping Pong
 
 
-API DOCUMETNATION
+##API DOCUMETNATION
 
-FOR REFEREE 
+##FOR REFEREE 
 
-### Create the round
+#### Create the round
 ```sh
 POST http://localhost:3000/referee/round
 
