@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  h1 Game Report
+  if game.winner != ''
+    h3 Champion is #{game.winner}
+  h3 Game Score Board
+  if game.championship.rounds.length > 0
+    each round in game.championship.rounds
+      table(border=1,cellpadding=10)
+        thead
+          tr: th Round : #{round.name}
+        tbody
+          each match in round.matches
+            tr
+              td(border=1)
+                p(style='color:red') Match : !{match.user1Details.name} vs !{match.user2Details.name}
+                p(style='color:red') Score : !{match.user1Details.name} - !{match.points.user1} , !{match.user2Details.name} - !{match.points.user2}
+                if match.winner > 0
+                  p(style='color:blue') Winner : !{match.winnerName} 
+                else
+                  p(style='color:blue') Winner : Pending                  
+  else
+    p No rounds and matches found
