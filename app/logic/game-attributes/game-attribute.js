@@ -5,7 +5,7 @@
  */
 
 /**
- * This is object hold the all information related to game. eg. winner,championship id,
+ * This object hold the all information related to the game. eg. winner,championship id,
  * players, rounds, matches etc.
  */
 
@@ -98,7 +98,7 @@ game.championship.id = 1;
  */
 game.championship.rounds = [];
 /**
- * matches belong to rounds.
+ * matches belong to the rounds.
  */
 game.championship.rounds.matches = [];
 /**

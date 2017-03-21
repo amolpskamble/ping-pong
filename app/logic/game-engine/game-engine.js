@@ -18,7 +18,7 @@ var defaultGameAttributes=JSON.stringify(game);
 var gameEngine = {};
 
 /**
- * Restart the game after championship or for any reason
+ * Restart the game after championship or for any other reason
  */
 gameEngine.restartGame=function(){
     game=JSON.parse(defaultGameAttributes);
@@ -109,14 +109,14 @@ gameEngine.updateMatch = function (match) {
     }
 };
 /**
- * Private method which take match object and defence as array and further process the move
+ * Private method which take match object and defence as array and further process the moves
  * @param {type} match
  * @param {type} inputs
  * @returns {unresolved}
  */
 gameEngine._saveDefenderMove = function (match, inputs) {
     if (match.defenderInputs && match.defenderInputs.length > 0) {
-        reportError(400, "Defender have already given defence set.");
+        reportError(400, "Defender have already given the defence set.");
     }
     gameEngine.validateTheUser(match.defender);
     var defender = gameEngine.getUserById(match.defender);
@@ -145,7 +145,7 @@ gameEngine._saveDefenderMove = function (match, inputs) {
  */
 gameEngine._saveAttackerMove = function (match, input) {
     if (match.attackerInput > 0) {
-        reportError(400, "Attacker have already given attack input");
+        reportError(400, "Attacker have already given the attack input");
     }
     if (!(input >= 1 && input <= 10)) {
         reportError(400, "Attack value should be between 1 to 10.");
@@ -160,7 +160,7 @@ gameEngine._saveAttackerMove = function (match, input) {
     return match;
 };
 /**
- * Save defender move for the match
+ * Save defender moves for the match
  * @param {type} roundId
  * @param {type} matchId
  * @param {type} playerId
@@ -180,7 +180,7 @@ gameEngine.saveDefenderMove = function (roundId, matchId, playerId, defenderInpu
     return gameEngine._saveDefenderMove(match, defenderInputs);
 };
 /**
- * Save attaker move for the match
+ * Save attaker moves for the match
  * @param {type} roundId
  * @param {type} matchId
  * @param {type} playerId
@@ -211,7 +211,7 @@ gameEngine.checkGameStatus = function (roundId, matchId, playerId) {
     var match = gameEngine.getMatchById(roundId, matchId);
 
     if (match.user1 !== playerId && match.user2 !== playerId) {
-        reportError(403, ['Your do not belong to this match']);
+        reportError(403, ['Player '+playerId+' do not belong to this match']);
     }
 
     delete match.defenderInputs;
@@ -237,10 +237,10 @@ gameEngine.isMoveCompleted = function (match) {
  */
 gameEngine.givePoints = function (match) {
     if (match.winner > 0) {
-        reportError(400, "Winner already decided for the match");
+        reportError(400, "Winner is already decided for the match");
     }
     if (!(gameEngine.isMoveCompleted(match))) {
-        reportError(400, "Defender and Attacker Input are required ");
+        reportError(400, "Defender and Attacker Input are required");
     }
     if (match.defender === match.user1) {
         if (match.defenderInputs.indexOf(match.attackerInput) === -1) {
@@ -274,7 +274,7 @@ gameEngine.givePoints = function (match) {
     match.defenderInputs = [];
     match.attackerInput = -1;
     gameEngine.updateMatch(match);
-    if(match.winner > 0 && isChampion(match.user)){
+    if(match.winner > 0 && gameEngine.isChampion(match.user)){
         game.winner=match.winnerName;
     }
     return match;
@@ -366,7 +366,7 @@ gameEngine.getRoundByName = function (name) {
     });
 };
 /**
- * Get Match given two users
+ * Get the match details between two users
  * @param {type} roundId
  * @param {type} users
  * @returns {unresolved}
@@ -380,13 +380,13 @@ gameEngine.getMatchByUsers = function (roundId, users) {
 };
 
 /**
- * Return the game object as whole . For debugging and reporting purpose
+ * Return the game object as whole. For debugging and reporting purpose.
  */
 gameEngine.getGame = function () {
     return game;
 };
 /**
- * Get the match given by roundId, matchId
+ * Get the match details by roundId, matchId
  * @param {type} roundId
  * @param {type} matchId
  * @returns {unresolved}
@@ -412,7 +412,7 @@ gameEngine.getMatchById = function (roundId, matchId) {
     var match = gameEngine.getMatch(roundId, matchId);
     if (!match || match.length <= 0) {
         reportError(404, "No match found with roundId " + roundId + ",matchId " +
-                matchId + "does not exists.");
+                matchId );
     }
     return match[0];
 };
