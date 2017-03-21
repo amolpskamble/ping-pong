@@ -132,3 +132,48 @@ matchId- id created in 2nd API
 		move - Action of defending, attacking.
 	- Restart the game using 4th API if any unexpected errors are coming up.
 	- Use 5th API to check the game progress and scoreboard.
+	
+#### Player Details
+
+```sh
+[ { id: 1,
+    name: 'Joey',
+    defenceSetLength: 8,
+    join: false,
+    inChampionship: 'YES' },
+  { id: 2,
+    name: 'Nick',
+    defenceSetLength: 8,
+    join: false,
+    inChampionship: 'YES' },
+  { id: 3,
+    name: 'Russel',
+    defenceSetLength: 7,
+    join: false,
+    inChampionship: 'YES' },
+  { id: 4,
+    name: 'Vivek',
+    defenceSetLength: 7,
+    join: false,
+    inChampionship: 'YES' },
+  { id: 5,
+    name: 'Pritam',
+    defenceSetLength: 6,
+    join: false,
+    inChampionship: 'YES' },
+  { id: 6,
+    name: 'Amit',
+    defenceSetLength: 6,
+    join: false,
+    inChampionship: 'YES' },
+  { id: 7,
+    name: 'Chandler',
+    defenceSetLength: 5,
+    join: false,
+    inChampionship: 'YES' },
+  { id: 8,
+    name: 'Clowin',
+    defenceSetLength: 5,
+    join: false,
+    inChampionship: 'YES' } ]
+```
