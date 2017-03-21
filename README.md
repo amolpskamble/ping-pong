@@ -52,7 +52,7 @@ GET http://localhost:3000/referee/game
 ```sh
 GET http://localhost:3000/referee/game/restart
 ```
-#### Game Report
+#### The Game Report
 ```sh
 GET http://localhost:3000/referee/game/report
 ```
@@ -70,7 +70,7 @@ playerId- palyer id
 
 ```
 
-#### 6. Save defence inputs for the game
+#### 6. Save the defender inputs for the game
 ```sh
 PUT http://localhost:3000/player/playerId/round/:roundId/match/:matchId/defend
 
@@ -88,7 +88,7 @@ body:
 defenderInputs- defence inputs array
 ```
 
-#### 7. Save defence inputs for the game
+#### 7. Save the attacker input for the game
 ```sh
 PUT http://localhost:3000/player/playerId/round/:roundId/match/:matchId/attack
 
@@ -121,4 +121,14 @@ matchId- id created in 2nd API
 
 
 
-
+## Instructions
+	- Create the round before starting the matches
+	- Join the game before making moves
+	- Terminology
+		user1 - Player 1
+		user2 - Player 2
+		round - Round such Final Round, Semifinal Round. Matches belong to the round.
+		match - Match between two users. One round may contains several matches depending on the number of users.
+		move - Action of defending, attacking.
+	- Restart the game using 4th API if any unexpected errors are coming up.
+	- Use 5th API to check the game progress and scoreboard.
