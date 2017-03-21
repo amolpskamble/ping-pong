@@ -109,7 +109,7 @@ body:
 attackerInput- attacker input
 ```
 
-#### 8. Check game stasus 
+#### 8. Check the game stasus 
 ```sh
 GET https://ping-pong-game.herokuapp.com/player/:playerId/round/:roundId/match/:matchId
 
