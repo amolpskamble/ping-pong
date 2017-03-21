@@ -1,7 +1,7 @@
 # Ping Pong
 
 
-## API for Referee 
+## API for the Referee 
 
 #### 1. Create the round
 ```sh
@@ -54,4 +54,32 @@ GET http://localhost:3000/referee/game/restart
 ```
 
 
+## API for the Player 
 
+#### 5. Join the game 
+```sh
+PUT http://localhost:3000/player/:playerId/join
+
+Requst-
+
+playerId- palyer id
+
+```
+
+#### 5. Save defence inputs for the game
+```sh
+PUT http://localhost:3000/player/playerId/round/:roundId/match/:matchId/defend
+Requst-
+
+playerId- palyer id
+roundId- round id created in 1st API or 2nd API
+matchId- id created in 2nd API
+
+body-
+
+{
+	"defenderInputs" : [3,1,2,6,8]
+}
+
+defenderInputs- defence inputs array
+```
