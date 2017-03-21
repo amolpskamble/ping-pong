@@ -66,19 +66,42 @@ playerId- palyer id
 
 ```
 
-#### 5. Save defence inputs for the game
+#### 6. Save defence inputs for the game
 ```sh
 PUT http://localhost:3000/player/playerId/round/:roundId/match/:matchId/defend
-Requst-
+
+##### Request:
+
+Path parameter: 
+playerId- palyer id
+roundId- round id created in 1st API or 2nd API
+matchId- id created in 2nd API
+
+body:
+
+{
+   "defenderInputs" : [3,1,2,6,8]
+}
+
+defenderInputs- defence inputs array
+```
+
+#### 7. Save defence inputs for the game
+```sh
+PUT http://localhost:3000/player/playerId/round/:roundId/match/:matchId/attack
+
+##### Requst
+
+Path parameter:
 
 playerId- palyer id
 roundId- round id created in 1st API or 2nd API
 matchId- id created in 2nd API
 
-body-
+body: 
 
 {
-	"defenderInputs" : [3,1,2,6,8]
+    "defenderInputs" : [3,1,2,6,8]
 }
 
 defenderInputs- defence inputs array
