@@ -11,6 +11,8 @@ body :
 {
 	"name":"Final Round"
 }
+
+name - name of the round
 ```
 
 #### Create the match
@@ -27,4 +29,10 @@ body :
 		"attacker":6  // current attacker user id 
 	}
 }
+
+roundI- created in 1st API
+user1- player 1 user id 
+user2- player 2 user id
+defender- initial defender user id 
+attacker- initial attacker user id
 ```
